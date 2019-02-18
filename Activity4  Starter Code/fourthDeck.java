@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * It provides several operations including
  *      initialize, shuffle, deal, and check if empty.
  */
-public class Deck {
+public class fourthDeck {
 
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private List<fourthCard> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -29,11 +29,11 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
-	public Deck(String[] ranks, String[] suits, int[] values) {
-		cards = new ArrayList<Card>();
+	public fourthDeck(String[] ranks, String[] suits, int[] values) {
+		cards = new ArrayList<fourthCard>();
 		for (int j = 0; j < ranks.length; j++) {
 			for (String suitString : suits) {
-				cards.add(new Card(ranks[j], suitString, values[j]));
+				cards.add(new fourthCard(ranks[j], suitString, values[j]));
 			}
 		}
 		size = cards.size();
@@ -62,7 +62,13 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for (int k = size - 1; k > 0; k--) {
+			int r = (int) Math.random() * (k);
+			fourthCard temp = cards.get(r);
+			cards.set(r, cards.get(k));
+			cards.set(k, temp);
+		}
+		size = cards.size();
 	}
 
 	/**
@@ -70,12 +76,12 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
+	public fourthCard deal() {
 		if (isEmpty()) {
 			return null;
 		}
 		size--;
-		Card c = cards.get(size);
+		fourthCard c = cards.get(size);
 		return c;
 	}
 

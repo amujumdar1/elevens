@@ -2,6 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="Activity1 Starter Code"/>
 	<classpathentry kind="src" path="Activity2  Starter Code"/>
+	<classpathentry kind="src" path="Activity3  Starter Code"/>
+	<classpathentry kind="src" path="Activity4  Starter Code"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

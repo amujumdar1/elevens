@@ -1,7 +1,7 @@
 /**
  * This class provides a convenient way to test shuffling methods.
  */
-public class Shuffler {
+public class ThirdShuffler {
 
 	/**
 	 * The number of consecutive shuffle steps to be performed in each call
@@ -17,7 +17,10 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = new int[52];
+		for (int i = 0; i < values1.length; i++) {
+			values1[i] = i;
+		}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -30,12 +33,11 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			selectionShuffle(values2);
+			selectionShuffle(values1);
 			System.out.print("  " + j + ":");
-			for (int k = 0; k < values2.length; k++) {
-				System.out.print(" " + values2[k]);
+			for (int k = 0; k < values1.length; k++) {
+				System.out.print(" " + values1[k]);
 			}
 			System.out.println();
 		}
@@ -50,7 +52,17 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[52];
+		int k = 0;
+		for (int j = 0; j < 26; j++) {
+			shuffled[k] = values[j];
+			k += 2;
+		}
+		k = 1;
+		for (int j = 26; j < 52; j++) {
+			shuffled[k] = values[j];
+			k += 2;
+		}
 	}
 
 	/**
@@ -65,6 +77,24 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int k = 51; k > 0; k--) {
+			int r = (int) Math.random() * (k);
+			int temp = values[r];
+			values[r] = values[k];
+			values[k] = temp;
+		}
+		
+		
+		/*int[] shuffled = new int[52];
+		int j = 0;
+		for (int k = 0; k < 52; k++) {
+			
+			do {
+				j = (int) Math.random() * 52;
+			} while (values[j] == 0);
+			
+			shuffled[k] = values[j];
+			values[j] = 0;
+		}*/
 	}
 }

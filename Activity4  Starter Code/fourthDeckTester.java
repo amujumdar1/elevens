@@ -1,7 +1,7 @@
 /**
  * This is a class that tests the Deck class.
  */
-public class DeckTester {
+public class fourthDeckTester {
 
 	/**
 	 * The main method in this class checks the Deck operations for consistency.
@@ -11,7 +11,7 @@ public class DeckTester {
 		String[] ranks = {"jack", "queen", "king"};
 		String[] suits = {"blue", "red"};
 		int[] pointValues = {11, 12, 13};
-		Deck d = new Deck(ranks, suits, pointValues);
+		fourthDeck d = new fourthDeck(ranks, suits, pointValues);
 
 		System.out.println("**** Original Deck Methods ****");
 		System.out.println("  toString:\n" + d.toString());
@@ -51,6 +51,14 @@ public class DeckTester {
 		System.out.println();
 		System.out.println();
 
-		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		String[] normalRanks = new String[] {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+				, "Jack", "Queen", "King"};
+		String[] normalSuits = new String[] {"Clubs", "Diamonds", "Hearts", "Spades"};
+		int[] normalPointValues = new int[13];
+		for (int i = 0; i < normalPointValues.length; i++) {
+			normalPointValues[i] = i + 1;
+		}
+		fourthDeck normalDeck = new fourthDeck(normalRanks, normalSuits, normalPointValues);
+		System.out.println(normalDeck);
 	}
 }
